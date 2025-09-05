@@ -1,103 +1,129 @@
-import Image from "next/image";
+import Link from "next/link";
+import { SITE } from "@/lib/constants";
 
-export default function Home() {
+type Project = {
+  title: string;
+  description: string;
+  stack: string[];
+  href: string;
+};
+
+const projects: Project[] = [
+  {
+    title: "Projeto A",
+    description: "Aplicação web full-stack com autenticação, CRUD e deploy.",
+    stack: ["Next.js", "TypeScript", "Tailwind", "Prisma"],
+    href: "https://github.com/seuusuario/projeto-a",
+  },
+  {
+    title: "Projeto B",
+    description: "Dashboard de dados com gráficos e integração de API pública.",
+    stack: ["Next.js", "React Query", "Chart.js"],
+    href: "https://github.com/seuusuario/projeto-b",
+  },
+  {
+    title: "Projeto C",
+    description:
+      "Landing page performática com SEO e testes de acessibilidade.",
+    stack: ["Next.js", "Tailwind", "Lighthouse"],
+    href: "https://github.com/seuusuario/projeto-c",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      {/* HERO */}
+      <section id="sobre" className="py-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+            Olá, eu sou {SITE.name} —{" "}
+            <span className="text-zinc-500">{SITE.role}</span>
+          </h1>
+          <p className="mt-4 text-zinc-600 dark:text-zinc-400">
+            {SITE.description} Aqui você encontra uma seleção dos meus
+            principais trabalhos, tecnologias que utilizo e formas de contato.
+          </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <Link
+              href="#projetos"
+              className="rounded-md bg-zinc-900 px-4 py-2 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            >
+              Ver projetos
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* PROJETOS */}
+      <section id="projetos" className="space-y-6 py-8">
+        <div className="flex items-end justify-between">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Projetos em destaque
+          </h2>
+          <span className="text-sm text-zinc-500">
+            {projects.length} projetos
+          </span>
+        </div>
+
+        <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((p) => (
+            <li
+              key={p.title}
+              className="group rounded-xl border border-zinc-200/60 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-800/60 dark:bg-zinc-950"
+            >
+              <div className="flex flex-col gap-3">
+                <h3 className="text-lg font-medium">{p.title}</h3>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                  {p.description}
+                </p>
+                <ul className="flex flex-wrap gap-2">
+                  {p.stack.map((s) => (
+                    <li
+                      key={s}
+                      className="rounded-full border px-2.5 py-0.5 text-xs text-zinc-600 dark:border-zinc-700 dark:text-zinc-300"
+                    >
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+                <div>
+                  <Link
+                    href={p.href}
+                    target="_blank"
+                    className="inline-block rounded-md border px-3 py-1.5 text-sm hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800"
+                    aria-label={`Abrir ${p.title} no GitHub`}
+                  >
+                    Ver no GitHub →
+                  </Link>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* CONTATO */}
+      <section id="contato" className="py-16">
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Vamos conversar?
+          </h2>
+          <p className="mt-3 text-zinc-600 dark:text-zinc-400">
+            Está trabalhando em algo interessante? Me escreva e vamos trocar uma
+            ideia.
+          </p>
+          <div className="mt-6 flex justify-center">
+            <Link
+              href={`mailto:${SITE.email}`}
+              className="rounded-md bg-zinc-900 px-5 py-2.5 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            >
+              Enviar e-mail
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
