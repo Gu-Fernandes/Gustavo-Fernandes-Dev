@@ -25,8 +25,8 @@ export default function Header() {
 
         {/* Mobile: botão hambúrguer */}
         <Button
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
-          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border"
+          variant="default"
+          className="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md"
           onClick={toggle}
         >
           {open ? (
@@ -41,7 +41,7 @@ export default function Header() {
             </svg>
           ) : (
             // Ícone hambúrguer
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <svg viewBox="0 5 20 20" width="22" height="22" aria-hidden="true">
               <path
                 d="M3 6h18M3 12h18M3 18h18"
                 stroke="currentColor"
