@@ -1,18 +1,14 @@
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
-
-type Project = {
-  title: string;
-  description: string;
-  stack: string[];
-  href: string;
-};
+import { Button } from "@/components/button";
+import { Mail } from "lucide-react";
+import { Project } from "@/types/project.type";
 
 const projects: Project[] = [
   {
-    title: "Projeto A",
-    description: "Aplicação web full-stack com autenticação, CRUD e deploy.",
-    stack: ["Next.js", "TypeScript", "Tailwind", "Prisma"],
+    title: "infoCripto",
+    description: "Sistema Web, responsivo e educacional sobre criptomoedas.",
+    stack: ["Next.js", "Tailwind", "Python"],
     href: "https://github.com/seuusuario/projeto-a",
   },
   {
@@ -115,12 +111,13 @@ export default function HomePage() {
             ideia.
           </p>
           <div className="mt-6 flex justify-center">
-            <Link
-              href={`mailto:${SITE.email}`}
-              className="rounded-md bg-zinc-900 px-5 py-2.5 text-white hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            <Button
+              variant="outline"
+              aria-label={`Enviar e-mail para ${SITE.name}`}
+              icon={<Mail className="h-4 w-4" aria-hidden="true" />}
             >
-              Enviar e-mail
-            </Link>
+              <a href={`mailto:${SITE.email}`}>Enviar e-mail</a>
+            </Button>
           </div>
         </div>
       </section>

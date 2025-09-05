@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { SITE } from "@/lib/constants";
-
-/**
- * Layout raiz da aplicação (App Router).
- * Envolve todas as páginas com Header e Footer.
- */
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: `${SITE.name} — ${SITE.role}`,
@@ -30,11 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR">
-      <body className={inter.className}>
-        <Header />
-        <main className="container py-10">{children}</main>
-        <Footer />
+    <html lang="pt-BR" className="h-full">
+      <body>
+        <div className="mx-auto w-full max-w-7xl px-4 md:px-8">
+          <Header />
+          <main className="py-6">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
