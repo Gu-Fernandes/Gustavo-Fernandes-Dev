@@ -6,12 +6,14 @@ import { Button } from "@/components/button";
 
 type FooterLinkProps = {
   href: string;
+  label: string;
   children: ReactNode;
   className?: string;
 };
 
 export default function FooterLink({
   href,
+  label,
   children,
   className,
 }: FooterLinkProps) {
@@ -21,16 +23,21 @@ export default function FooterLink({
     href.startsWith("tel:");
 
   return (
-    <Link
-      href={href}
-      {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    <Button
+      variant="icon"
+      className={["justify-start", className].filter(Boolean).join(" ")}
     >
-      <Button
-        variant="icon"
-        className={["justify-start", className].filter(Boolean).join(" ")}
+      <Link
+        href={href}
+        aria-label={label}
+        title={label}
+        {...(isExternal
+          ? { target: "_blank", rel: "noopener noreferrer" }
+          : {})}
+        prefetch={false}
       >
         {children}
-      </Button>
-    </Link>
+      </Link>
+    </Button>
   );
 }

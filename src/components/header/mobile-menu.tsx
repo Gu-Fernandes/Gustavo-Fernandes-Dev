@@ -8,7 +8,7 @@ type MobileMenuProps = {
 
 export function MobileMenu({ onClose }: MobileMenuProps) {
   return (
-    <div className="  border-b rounded-2xl bg-background md:hidden">
+    <div className=" border rounded-2xl bg-background md:hidden">
       <nav className="container">
         <NavLinks onClick={onClose} />
       </nav>

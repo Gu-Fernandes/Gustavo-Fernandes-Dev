@@ -4,6 +4,7 @@
   --background: #46484d;
   --foreground: #d7d7d7;
   --primary: #15807c;
+  --card: #00000050;
 }
 
 @theme inline {
@@ -12,6 +13,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --color-primary: var(--primary);
+  --color-card: var(--card);
 }
 
 @media (prefers-color-scheme: dark) {

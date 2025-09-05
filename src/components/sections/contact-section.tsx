@@ -12,7 +12,7 @@ export default function ContactSection() {
           Vamos conversar?
         </h2>
 
-        <p className="mt-3 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-3">
           Está trabalhando em algo interessante? Me escreva e vamos trocar uma
           ideia.
         </p>
