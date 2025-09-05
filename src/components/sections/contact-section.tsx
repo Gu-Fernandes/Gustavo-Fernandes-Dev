@@ -2,9 +2,15 @@
 
 import { SITE } from "@/lib/constants";
 import { Button } from "@/components/button";
-import { Mail } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 
 export default function ContactSection() {
+  const waNumber = SITE.whatsapp?.replace(/\D/g, "") ?? "";
+
+  const waText = encodeURIComponent(
+    "Olá, Gustavo! Vim pelo site do seu portfólio e gostaria de conversar."
+  );
+
   return (
     <section id="contato" className="py-16">
       <div className="mx-auto max-w-2xl text-center">
@@ -17,8 +23,8 @@ export default function ContactSection() {
           ideia.
         </p>
 
-        <div className="mt-6 flex justify-center">
-          {/* Button como <a> usando asChild */}
+        <div className="mt-6 flex justify-center gap-3">
+          {/* E-mail */}
           <Button
             variant="outline"
             icon={<Mail className="h-4 w-4" aria-hidden="true" />}
@@ -28,6 +34,20 @@ export default function ContactSection() {
               aria-label={`Enviar e-mail para ${SITE.name}`}
             >
               Enviar e-mail
+            </a>
+          </Button>
+
+          {/* WhatsApp */}
+          <Button
+            variant="outline"
+            icon={<MessageCircle className="h-4 w-4" aria-hidden="true" />}
+          >
+            <a
+              href={`https://wa.me/${waNumber}?text=${waText}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
             </a>
           </Button>
         </div>

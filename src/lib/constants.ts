@@ -5,4 +5,5 @@ export const SITE = {
   email: "gu03fernandes.s@gmail.com",
   github: "https://github.com/Gu-Fernandes",
   linkedin: "https://www.linkedin.com/in/gustavo-fernandes-silva",
+  whatsapp: "+55 11 971671842",
 };
