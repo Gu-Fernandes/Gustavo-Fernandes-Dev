@@ -1,6 +1,5 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -10,31 +9,16 @@ import { ProjectCard } from "./project-card";
 type ProjectsSectionProps = { projects: Project[] };
 
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
+  const [emblaRef] = useEmblaCarousel(
     { loop: true, align: "start", skipSnaps: false, dragFree: false },
     [
       Autoplay({
-        delay: 4200,
+        delay: 4500,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
       }),
     ]
   );
-
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return;
-    setSelectedIndex(emblaApi.selectedScrollSnap());
-  }, [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    setScrollSnaps(emblaApi.scrollSnapList());
-    emblaApi.on("select", onSelect);
-    onSelect();
-  }, [emblaApi, onSelect]);
 
   return (
     <section id="projetos" className="not-prose space-y-6 py-8">
@@ -43,7 +27,11 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
       </div>
 
       <div className="relative">
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div
+          className="overflow-hidden"
+          ref={emblaRef}
+          aria-roledescription="carousel"
+        >
           <ul className="flex list-none p-0 m-0">
             {projects.map((p) => (
               <li
