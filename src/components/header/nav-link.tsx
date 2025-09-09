@@ -10,7 +10,7 @@ type NavLinksProps = {
 export function NavLinks({ onClick }: NavLinksProps) {
   const links = [
     { href: "#sobre", label: "Sobre" },
-    { href: "#projetos", label: "Projetos" },
+    { href: "/projects", label: "Projetos" },
     { href: "#contato", label: "Contato" },
   ];
 

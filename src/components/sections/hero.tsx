@@ -89,7 +89,7 @@ export default function Hero() {
           </p>
 
           <div className="mt-6 flex items-center justify-center md:justify-start gap-3">
-            <Link href="#projetos" title="Ir para a seção de projetos">
+            <Link href="/projects" title="Ir para a seção de projetos">
               <Button>Ver projetos</Button>
             </Link>
           </div>
