@@ -55,7 +55,7 @@ export default function Hero() {
           {...fadeInProps}
         >
           <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Olá, eu sou {SITE.name} —{" "}
+            Olá, sou o {SITE.name} —{" "}
             <span className="text-primary">{SITE.role}</span>
           </h1>
         </motion.div>
