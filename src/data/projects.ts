@@ -11,7 +11,7 @@ export const projects: Project[] = [
   {
     title: "Optimus Tech",
     description:
-      "Web Site responsivo de uma empresa de tecnologia, site visual sem interações.",
+      "Web Site responsivo de uma empresa de tecnologia (fictícia), site visual. Um dos meus primeiros projetos",
     stack: ["HTML5", "CSS3"],
     href: "https://optimus-tech-seven-red.vercel.app/",
   },

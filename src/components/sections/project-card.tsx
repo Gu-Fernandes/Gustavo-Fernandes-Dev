@@ -21,7 +21,7 @@ function ProjectCardBase({ project }: ProjectCardProps) {
   const { title, description, stack, href } = project;
 
   return (
-    <li className="group rounded-xl bg-card p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
+    <div className="group rounded-xl bg-card p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg">
       <div className="flex flex-col gap-3">
         <h3 className="text-lg font-medium">{title}</h3>
 
@@ -41,7 +41,7 @@ function ProjectCardBase({ project }: ProjectCardProps) {
           </Button>
         </div>
       </div>
-    </li>
+    </div>
   );
 }
 

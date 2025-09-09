@@ -14,7 +14,7 @@ export default function Header() {
     <header className="w-full">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo/Nome */}
-        <Link href="/" className="font-semibold">
+        <Link href="/" className="font-semibold ">
           {SITE.name}
         </Link>
 
